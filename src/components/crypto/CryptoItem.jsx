@@ -22,7 +22,13 @@ function CryptoItem({ name, index, price, change, marketCap }) {
             <h3 className="border-b-2 text-sm text-slate-300 border-slate-500">
               Change
             </h3>
-            <h1 className="font-extrabold lg:text-2xl mt-1">{change}%</h1>
+            <h1
+              className={`font-extrabold lg:text-2xl mt-1 ${
+                change < 0 ? "text-red-500" : "text-green-500"
+              }`}
+            >
+              {change}%
+            </h1>
           </div>
           <div className="mx-3">
             <h3 className="border-b-2 text-sm text-slate-300 border-slate-500">

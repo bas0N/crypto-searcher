@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import { CryptoProvider } from "./context/CryptoContext";
+import AssetInfo from "./pages/AssetInfo";
 function App() {
   return (
     <CryptoProvider>
@@ -15,6 +16,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/asset/:id" element={<AssetInfo />} />
               <Route path="/not-found" element={<NotFound />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>

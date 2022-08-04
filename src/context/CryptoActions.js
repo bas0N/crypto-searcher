@@ -8,6 +8,16 @@ export const getMultipleAssets = async () => {
   }
 };
 
+export const searchAssets = async (searchValue) => {
+  try {
+    const response = await fetch(
+      `https://api.coincap.io/v2/assets/?search=${searchValue}`
+    );
+    return response.json();
+  } catch (e) {
+    console.log(e);
+  }
+};
 export const getAsset = async (id) => {
   try {
     const response = await fetch(`https://api.coincap.io/v2/assets/${id}`);

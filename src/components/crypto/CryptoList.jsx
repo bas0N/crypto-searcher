@@ -14,15 +14,13 @@ function CryptoList() {
       dispatch({ type: "GET_MULTIPLE_ASSETS", payload: assets.data });
     };
     execute();
-
-    console.log(assets);
   }, [dispatch]);
 
   if (loading) {
     return <div>loading</div>;
   }
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mt-9">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mt-6">
       {assets.map((index) => (
         <CryptoItem
           id={index.id}

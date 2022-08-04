@@ -6,6 +6,7 @@ export const CryptoProvider = ({ children }) => {
     assets: [],
     asset: {},
     loading: false,
+    searchMode: false,
   };
 
   const [state, dispatch] = useReducer(cryptoReducer, initialState);

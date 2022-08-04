@@ -2,9 +2,16 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { BiCoinStack } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import CryptoContext from "../../context/CryptoContext";
 function Navbar() {
+  const { dispatch } = useContext(CryptoContext);
+  const handleSearchToggle = (e) => {
+    dispatch({ type: "TOGGLE_SEARCH_MODE" });
+  };
+
   return (
-    <div className="navbar mb-12 justify-between w-full shadow-lg bg-slate-800 ">
+    <div className="navbar mb-6 justify-between w-full shadow-lg bg-slate-800 ">
       <div className="container mx-auto flex justify-between ">
         <Link
           to="/"
@@ -15,7 +22,10 @@ function Navbar() {
         </Link>
 
         <div className="flex mr-9 justify-between  ">
-          <button className="btn btn-ghost text-xl">
+          <button
+            className="btn btn-ghost text-xl"
+            onClick={handleSearchToggle}
+          >
             <FaSearch />
           </button>
           <Link to="/" className="btn btn-ghost">

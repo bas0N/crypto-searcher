@@ -12,6 +12,10 @@ const cryptoReducer = (state, action) => {
       };
     case "TOGGLE_SEARCH_MODE":
       return { ...state, searchMode: !state.searchMode };
+    case "SET_CURRENT_PAGE_ASSETS":
+      return { ...state, currentPageAssets: action.payload };
+    case "SET_CURRENT_PAGE":
+      return { ...state, currentPage: action.payload, loading: false };
 
     default:
       return state;

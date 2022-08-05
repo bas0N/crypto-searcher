@@ -7,6 +7,8 @@ export const CryptoProvider = ({ children }) => {
     asset: {},
     loading: false,
     searchMode: false,
+    currentPageAssets: [],
+    currentPage: 1,
   };
 
   const [state, dispatch] = useReducer(cryptoReducer, initialState);

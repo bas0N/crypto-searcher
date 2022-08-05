@@ -11,14 +11,14 @@ function Navbar() {
   };
 
   return (
-    <div className="navbar mb-6 justify-between w-full shadow-lg bg-slate-800 ">
+    <div className="navbar mb-6 justify-between w-full shadow-lg bg-base-300 text-primary ">
       <div className="container mx-auto flex justify-between ">
         <Link
           to="/"
           className="flex justify-between items-center px-8 gap-2 btn btn-ghost "
         >
-          <BiCoinStack className="text-5xl text-slate-50" />
-          <h1 className="text-slate-50 text-3xl font-bold ">CRYPTEX</h1>
+          <BiCoinStack className="text-5xl " />
+          <h1 className=" text-3xl font-bold ">CRYPTEX</h1>
         </Link>
 
         <div className="flex mr-9 justify-between  ">

@@ -23,7 +23,7 @@ function Pagination() {
     <div className="btn-group ">
       {pageNumbers.map((number) => (
         <button
-          className={`btn ${currentPage === number && "btn-secondary"}`}
+          className={`btn ${currentPage === number && "btn-primary"}`}
           key={number}
           onClick={() => setCurrentPage(number)}
         >

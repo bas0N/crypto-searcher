@@ -8,10 +8,10 @@ function Home() {
   const { searchMode, dispatch } = useContext(CryptoContext);
 
   return (
-    <>
+    <div>
       {searchMode && <Search />}
       <CryptoList />
-    </>
+    </div>
   );
 }
 

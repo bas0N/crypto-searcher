@@ -5,6 +5,7 @@ export const CryptoProvider = ({ children }) => {
   const initialState = {
     assets: [],
     asset: {},
+    assetMarkets: [],
     loading: false,
     searchMode: false,
     currentPageAssets: [],

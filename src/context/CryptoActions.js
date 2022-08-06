@@ -26,3 +26,13 @@ export const getAsset = async (id) => {
     console.log("Error: ", e);
   }
 };
+export const getMarketsForAsset = async (id) => {
+  try {
+    const response = await fetch(
+      `https://api.coincap.io/v2/assets/${id}/markets`
+    );
+    return await response.json();
+  } catch (e) {
+    console.log("Error: ", e);
+  }
+};

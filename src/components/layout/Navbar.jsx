@@ -2,12 +2,28 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { BiCoinStack } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CryptoContext from "../../context/CryptoContext";
+
 function Navbar() {
-  const { dispatch } = useContext(CryptoContext);
+  const { dispatch, theme } = useContext(CryptoContext);
   const handleSearchToggle = (e) => {
     dispatch({ type: "TOGGLE_SEARCH_MODE" });
+  };
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, []);
+
+  const handleThemeToggle = () => {
+    if (theme === "dark") {
+      dispatch({ type: "TOGGLE_THEME", payload: "light" });
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", JSON.stringify("light"));
+    } else {
+      dispatch({ type: "TOGGLE_THEME", payload: "dark" });
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", JSON.stringify("dark"));
+    }
   };
 
   return (
@@ -21,7 +37,7 @@ function Navbar() {
           <h1 className=" text-3xl font-bold ">CRYPTEX</h1>
         </Link>
 
-        <div className="flex mr-9 justify-between  ">
+        <div className="flex mr-9 justify-between items-center ">
           <button
             className="btn btn-ghost text-xl"
             onClick={handleSearchToggle}
@@ -34,6 +50,13 @@ function Navbar() {
           <Link to="/about" className="btn btn-ghost">
             About
           </Link>
+          <input
+            type="checkbox"
+            className="toggle toggle-lg "
+            onChange={() => handleThemeToggle(theme)}
+            value={theme}
+            checked={theme === "dark" ? "checked" : ""}
+          />
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import { searchAssets } from "../context/CryptoActions";
-import CryptoContext from "../context/CryptoContext";
-import { getMultipleAssets } from "../context/CryptoActions";
+import { searchAssets } from "../../context/CryptoActions";
+import CryptoContext from "../../context/CryptoContext";
+import { getMultipleAssets } from "../../context/CryptoActions";
 function Search() {
   const [text, setText] = useState("");
   const { assets, loading, dispatch } = useContext(CryptoContext);

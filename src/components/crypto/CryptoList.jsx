@@ -4,7 +4,8 @@ import CryptoContext from "../../context/CryptoContext";
 import { useContext, useEffect, useState } from "react";
 import { data } from "../../assets/data";
 import { getMultipleAssets } from "../../context/CryptoActions";
-import Pagination from "../Pagination";
+import Pagination from "../layout/Pagination";
+import NotFound from "../../pages/NotFound";
 
 function CryptoList() {
   const { loading, assets, dispatch, currentPageAssets, currentPage } =
@@ -14,14 +15,16 @@ function CryptoList() {
     dispatch({ type: "SET_LOADING" });
     const execute = async () => {
       const assets = await getMultipleAssets();
-      console.log(assets);
       dispatch({ type: "GET_MULTIPLE_ASSETS", payload: assets.data });
     };
     execute();
-  }, [currentPage]);
+  }, []);
   //pagination
   if (loading) {
     return <div>loading</div>;
+  }
+  if (assets.length === 0) {
+    return <NotFound />;
   }
   return (
     <div className="flex flex-col items-center gap-9">

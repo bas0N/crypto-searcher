@@ -3,7 +3,12 @@ const cryptoReducer = (state, action) => {
     case "SET_LOADING":
       return { ...state, loading: true };
     case "GET_MULTIPLE_ASSETS":
-      return { ...state, assets: action.payload, loading: false };
+      return {
+        ...state,
+        assets: action.payload,
+        currentPage: 1,
+        loading: false,
+      };
     case "GET_ASSET":
       return {
         ...state,

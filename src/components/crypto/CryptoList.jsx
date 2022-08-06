@@ -28,7 +28,7 @@ function CryptoList() {
   }
   return (
     <div className="flex flex-col items-center gap-9">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mt-6">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mt-6 md:w-full">
         {currentPageAssets.map((index) => (
           <CryptoItem
             id={index.id}

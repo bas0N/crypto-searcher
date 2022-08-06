@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function CryptoItem({ id, name, index, price, change, marketCap }) {
   return (
     <Link to={`/asset/${id}`}>
-      <div className="shadow-md w-100 bg-neutral hover:bg-neutral-focus text-primary-content hover:cursor-pointer rounded-lg  pr-3 overflow-auto items-baseline  ">
+      <div className="shadow-md w-100 bg-neutral hover:bg-neutral-focus text-primary-content hover:cursor-pointer rounded-lg  pr-3 overflow-auto items-baseline w-ful ">
         <div className="flex flex-row py-6 px-3 justify-between items-center">
           <div className="mx-3 flex flex-col items-center">
             <h1 className="font-extrabold text-2xl lg:text-5xl  ">{index}</h1>

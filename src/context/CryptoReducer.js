@@ -23,6 +23,8 @@ const cryptoReducer = (state, action) => {
       return { ...state, currentPage: action.payload, loading: false };
     case "TOGGLE_THEME":
       return { ...state, theme: action.payload };
+    case "SET_ASSET_MARKETS":
+      return { ...state, assetMarkets: action.payload, loading: false };
     default:
       return state;
   }

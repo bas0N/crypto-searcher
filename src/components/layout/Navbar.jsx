@@ -31,7 +31,6 @@ function Navbar() {
       <div className="container mx-auto flex justify-between ">
         <Link
           to="/"
-          onClick={() => window.location.reload()}
           className="flex justify-between items-center px-8 gap-2 btn btn-ghost "
         >
           <BiCoinStack className="text-5xl " />

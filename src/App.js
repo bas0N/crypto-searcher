@@ -16,10 +16,10 @@ function App() {
             <Navbar />
             <main className="container mx-auto px-3 pb-12">
               <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/asset/:id" element={<AssetInfo />} />
-                <Route path="/not-found" element={<NotFound />} />
+                <Route exact path="/" exa element={<Home />} />
+                <Route exact path="/about" element={<About />} />
+                <Route exact path="/asset/:id" element={<AssetInfo />} />
+                <Route exact path="/not-found" element={<NotFound />} />
                 <Route path="/*" element={<NotFound />} />
               </Routes>
             </main>

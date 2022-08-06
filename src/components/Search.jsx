@@ -28,6 +28,7 @@ function Search() {
 
     const execute = async () => {
       const assets = await getMultipleAssets();
+
       dispatch({ type: "GET_MULTIPLE_ASSETS", payload: assets.data });
     };
     execute();

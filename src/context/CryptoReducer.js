@@ -16,7 +16,8 @@ const cryptoReducer = (state, action) => {
       return { ...state, currentPageAssets: action.payload };
     case "SET_CURRENT_PAGE":
       return { ...state, currentPage: action.payload, loading: false };
-
+    case "TOGGLE_THEME":
+      return { ...state, theme: action.payload };
     default:
       return state;
   }

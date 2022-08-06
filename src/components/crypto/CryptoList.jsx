@@ -9,16 +9,17 @@ import Pagination from "../Pagination";
 function CryptoList() {
   const { loading, assets, dispatch, currentPageAssets, currentPage } =
     useContext(CryptoContext);
+
   useEffect(() => {
     dispatch({ type: "SET_LOADING" });
     const execute = async () => {
       const assets = await getMultipleAssets();
+      console.log(assets);
       dispatch({ type: "GET_MULTIPLE_ASSETS", payload: assets.data });
     };
     execute();
-  }, [dispatch, currentPage]);
+  }, [currentPage]);
   //pagination
-  console.log(currentPageAssets);
   if (loading) {
     return <div>loading</div>;
   }

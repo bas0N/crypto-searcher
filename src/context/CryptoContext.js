@@ -9,6 +9,7 @@ export const CryptoProvider = ({ children }) => {
     searchMode: false,
     currentPageAssets: [],
     currentPage: 1,
+    theme: JSON.parse(localStorage.getItem("theme")) || "dark",
   };
 
   const [state, dispatch] = useReducer(cryptoReducer, initialState);

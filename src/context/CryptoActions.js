@@ -36,3 +36,11 @@ export const getMarketsForAsset = async (id) => {
     console.log("Error: ", e);
   }
 };
+export const getExchangeRates = async () => {
+  try {
+    const response = await fetch(`https://api.coincap.io/v2/rates`);
+    return await response.json();
+  } catch (e) {
+    console.log("Error: ", e);
+  }
+};

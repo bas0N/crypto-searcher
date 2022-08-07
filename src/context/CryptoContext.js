@@ -10,6 +10,7 @@ export const CryptoProvider = ({ children }) => {
     searchMode: false,
     currentPageAssets: [],
     currentPage: 1,
+    exchangeRates: [],
     theme: JSON.parse(localStorage.getItem("theme")) || "dark",
   };
 

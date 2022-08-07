@@ -7,6 +7,15 @@ export const getMultipleAssets = async () => {
     console.log(e);
   }
 };
+export const getExchangeRates = async () => {
+  console.log("esa");
+  try {
+    const response = await fetch("https://api.coincap.io/v2/rates/");
+    return await response.json();
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const searchAssets = async (searchValue) => {
   try {
@@ -28,10 +37,20 @@ export const getAsset = async (id) => {
 };
 export const getMarketsForAsset = async (id) => {
   try {
-    const response = await fetch(
+    let response = await fetch(
       `https://api.coincap.io/v2/assets/${id}/markets`
     );
-    return await response.json();
+    response = await response.json();
+    response = response.data.sort((a, b) => {
+      if (!a) {
+        a = 0;
+      }
+      if (!b) {
+        b = 0;
+      }
+      return b.volumePercent - a.volumePercent;
+    });
+    return response;
   } catch (e) {
     console.log("Error: ", e);
   }

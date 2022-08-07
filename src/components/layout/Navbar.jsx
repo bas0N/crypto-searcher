@@ -27,7 +27,7 @@ function Navbar() {
   };
 
   return (
-    <div className="navbar mb-6 justify-between w-full shadow-lg bg-base-300 text-primary ">
+    <div className="navbar mb-6 justify-between  shadow-lg bg-base-300 text-primary overflow-hidden ">
       <div className="container mx-auto flex justify-between ">
         <Link
           to="/"

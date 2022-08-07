@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function CryptoItem({ id, name, index, price, change, marketCap }) {
+function CryptoItem({ id, name, index, price, change, marketCap, rank }) {
   return (
     <Link to={`/asset/${id}`}>
       <div className="shadow-md w-100 bg-neutral hover:bg-neutral-focus text-primary-content hover:cursor-pointer rounded-lg  pr-3 overflow-auto items-baseline w-ful ">
@@ -11,19 +11,13 @@ function CryptoItem({ id, name, index, price, change, marketCap }) {
           </div>
 
           <div className="flex">
-            <div className="mx-3">
+            <div className="mx-3 flex flex-col justify-between">
               <h3 className="border-b-2 text-sm  ">Price</h3>
-              <h1 className="font-extrabold lg:text-2xl mt-1">{price}$</h1>
+              <h1 className="font-extrabold lg:text-2xl mt-1  	">{price}$</h1>
             </div>
-            <div className="mx-3">
-              <h3 className="border-b-2 text-sm  ">Change</h3>
-              <h1
-                className={`font-extrabold lg:text-2xl mt-1 ${
-                  change < 0 ? "text-red-500" : "text-green-500"
-                }`}
-              >
-                {change}%
-              </h1>
+            <div className="">
+              <h3 className="border-b-2 text-sm">Rank</h3>
+              <div className="font-bold text-2xl lg:text-5xl">{rank}</div>
             </div>
           </div>
         </div>

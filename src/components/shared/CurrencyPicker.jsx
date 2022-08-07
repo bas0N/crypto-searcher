@@ -1,26 +1,18 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import CryptoContext from "../../context/CryptoContext";
-import { getExchangeRates } from "../../context/CryptoActions";
 function CurrencyPicker() {
   const { dispatch, exchangeRates } = useContext(CryptoContext);
-  //   useEffect(() => {
-  //     dispatch({ type: "SET_LOADING" });
-
-  //     const execute = async () => {
-  //       const rates = await getExchangeRates("bitcoin");
-  //       dispatch({ type: "SET_EXCHANGE_RATES", payload: rates.data });
-  //     };
-  //     execute();
-  //   }, []);
-
+  const [selectedRate, setSelectedRate] = useState(exchangeRates[0]);
   return (
     <div>
-      <select className="select">
-        <option>$</option>
-        <option>€</option>
-        <option>£</option>
-        <option>¥</option>
-        <option>CHF</option>
+      <select
+        className="select"
+        value={selectedRate}
+        onSelect={() => setSelectedRate()}
+      >
+        {exchangeRates.map((currency) => (
+          <option>{currency.symbol}</option>
+        ))}
       </select>
     </div>
   );

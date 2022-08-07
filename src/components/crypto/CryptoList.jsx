@@ -3,7 +3,10 @@ import CryptoItem from "./CryptoItem";
 import CryptoContext from "../../context/CryptoContext";
 import { useContext, useEffect, useState } from "react";
 import { data } from "../../assets/data";
-import { getMultipleAssets } from "../../context/CryptoActions";
+import {
+  getMultipleAssets,
+  getExchangeRates,
+} from "../../context/CryptoActions";
 import Pagination from "../layout/Pagination";
 import NotFound from "../../pages/NotFound";
 
@@ -15,6 +18,7 @@ function CryptoList() {
     dispatch({ type: "SET_LOADING" });
     const execute = async () => {
       const assets = await getMultipleAssets();
+
       dispatch({ type: "GET_MULTIPLE_ASSETS", payload: assets.data });
     };
     execute();
@@ -32,6 +36,7 @@ function CryptoList() {
         {currentPageAssets.map((index) => (
           <CryptoItem
             id={index.id}
+            rank={index.rank}
             name={index.name}
             index={index.symbol}
             price={Number(index.priceUsd).toFixed(3)}

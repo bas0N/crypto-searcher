@@ -7,14 +7,13 @@ import { getAsset, getMarketsForAsset } from "../context/CryptoActions";
 function AssetInfo() {
   const { loading, asset, assetMarkets, dispatch } = useContext(CryptoContext);
   const params = useParams();
-  let markets = [];
   useEffect(() => {
     dispatch({ type: "SET_LOADING" });
     const execute = async () => {
       //redirect to not found if needed
       const result = await getAsset(params.id);
-      markets = await getMarketsForAsset(params.id);
-      markets = markets.data.slice(1, 20);
+      const markets = await getMarketsForAsset(params.id);
+
       dispatch({ type: "SET_ASSET_MARKETS", payload: markets });
       dispatch({ type: "GET_ASSET", payload: result.data });
     };
@@ -40,7 +39,7 @@ function AssetInfo() {
   }
   return (
     <div className="grid grid-cols-2 gap-3 md:grid-cols-3 text-base-content">
-      <div className="bg-base-300 col-span-2 card aspect-[2/3] md:aspect-[2/1]">
+      <div className="bg-base-300 col-span-2 card aspect-[7/10] lg:aspect-[2/1]">
         <MainInfo asset={asset} />
       </div>
 

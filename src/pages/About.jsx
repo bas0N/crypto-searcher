@@ -19,7 +19,7 @@ function About() {
             />
             <h1 className="text-3xl font-extrabold mt-3">Wojciech Basiński</h1>
             <div className="flex gap-3 items-center">
-              <h3>Intern Javascript developer</h3>
+              <h3>Javascript Intern developer</h3>
               <button
                 onClick={() =>
                   openInNewTab("https://www.linkedin.com/in/wojciech-basinski/")
@@ -102,7 +102,7 @@ function About() {
                     }
                     className="font-bold cursor-pointer text-primary"
                   >
-                    {"Linked repo. "}
+                    {"Linked repo"}
                   </a>
                 </p>
               </div>

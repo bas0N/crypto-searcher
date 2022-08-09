@@ -41,8 +41,8 @@ function Navbar() {
             to="/"
             className="flex justify-between items-center px-8 gap-2 btn btn-ghost "
           >
-            <RiCopperCoinFill className="text-5xl " />
-            <h1 className=" text-3xl font-bold ">CRYPTEX</h1>
+            <RiCopperCoinFill className="text-4xl " />
+            <h1 className=" text-xl font-bold ">CRYPTEX</h1>
           </Link>
 
           <div className="flex justify-between items-start ">

@@ -38,7 +38,7 @@ function Search() {
   }
   return (
     <div>
-      <div className=" flex flex-col items-center md:grid md:grid-cols-2 gap-9 justify-center container mx-auto mt-6">
+      <div className="  items-center md:grid md:grid-cols-2 gap-9  container mx-auto mt-6">
         <form onSubmit={handleSubmit}>
           <div className="flex  flex-col justify-center lg:flex-row ">
             <input
@@ -64,6 +64,36 @@ function Search() {
             </button>
           </div>
         </form>
+        <div className="flex  justify-center lg:justify-start">
+          <div class="dropdown flex w-3/12  mt-3 lg:mt-0 ">
+            <label tabindex="0" class="btn">
+              Sort by:
+            </label>
+            <ul
+              tabindex="0"
+              class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a>Name (A-Z)</a>
+              </li>
+              <li>
+                <a>Name (A-Z)</a>
+              </li>
+              <li>
+                <a>Price (high-low) </a>
+              </li>
+              <li>
+                <a>Price (low-high)</a>
+              </li>
+              <li>
+                <a>% Change (high-low)</a>
+              </li>
+              <li>
+                <a>% Change (low-low)</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,14 +1,16 @@
 import React from "react";
 import { BiCoinStack } from "react-icons/bi";
+import { RiCopperCoinFill } from "react-icons/ri";
+
 function Footer() {
   return (
     <div className="w-full bg-base-300 text-primary py-2 px-2">
       <div className="max-w-[1240px] mx-auto my-6 grid grid-cols-2 lg:grid-cols-4 ">
-        <div className="col-span-2 px-20 py-6">
+        <div className="col-span-2 px-20 py-6 ">
           <div className="flex items-center">
-            <BiCoinStack className="font-extrabold text-9xl" />
+            <RiCopperCoinFill className="font-extrabold text-9xl" />
             <div className="flex flex-col">
-              <h1 className="text-2xl font-extrabold ">CRYPTEX</h1>
+              <h1 className="text-4xl font-extrabold ">CRYPTEX</h1>
               <h3 className="font-bold ">Trusted crypto solutions</h3>
             </div>
           </div>

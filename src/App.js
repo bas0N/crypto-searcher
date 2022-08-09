@@ -14,9 +14,9 @@ function App() {
         <Router>
           <div className="flex flex-col justify-between h-screen ">
             <Navbar />
-            <main className="container mx-auto px-3 pb-12">
+            <main className="container mx-auto px-3 pb-12 ">
               <Routes>
-                <Route exact path="/" exa element={<Home />} />
+                <Route exact path="/" exact element={<Home />} />
                 <Route exact path="/about" element={<About />} />
                 <Route exact path="/asset/:id" element={<AssetInfo />} />
                 <Route exact path="/not-found" element={<NotFound />} />

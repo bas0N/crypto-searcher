@@ -60,7 +60,7 @@ function MainInfo({ asset }) {
                 asset.changePercent24Hr < 0 ? "text-red-500" : "text-green-500"
               }`}
             >
-              $ {asset.changePercent24Hr < 0 ? "" : "+"}
+              {asset.changePercent24Hr < 0 ? "" : "+"}
               {Number(asset.changePercent24Hr).toFixed(3)} %
             </div>
             <div className="stat-desc break-normal ">

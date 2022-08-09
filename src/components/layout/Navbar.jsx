@@ -91,7 +91,7 @@ function Navbar() {
         <li className=" bg-base-100 w-full flex flex-col items-center ">
           <Link
             to="/"
-            className="btn btn-ghost"
+            className="btn btn-ghost w-full"
             onClick={handleClose}
             duration={500}
           >
@@ -99,7 +99,7 @@ function Navbar() {
           </Link>
           <Link
             to="/about"
-            className="btn btn-ghost"
+            className="btn btn-ghost w-full"
             onClick={handleClose}
             duration={500}
           >

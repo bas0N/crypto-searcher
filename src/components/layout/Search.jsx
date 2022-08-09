@@ -38,23 +38,26 @@ function Search() {
   }
   return (
     <div>
-      <div className=" flex flex-col items-center md:grid md:grid-cols-2 gap-9 justify-center container mx-auto">
+      <div className=" flex flex-col items-center md:grid md:grid-cols-2 gap-9 justify-center container mx-auto mt-6">
         <form onSubmit={handleSubmit}>
-          <div className="flex  flex-col justify-center md:flex-row ">
+          <div className="flex  flex-col justify-center lg:flex-row ">
             <input
               type="text"
               placeholder="Search"
-              className="  input input-lg input-primary mr-6 flex-grow text-accent-content bg-base-300"
+              className="  input input-lg input-primary lg:mr-6 flex-grow text-accent-content bg-base-300"
               value={text}
               onChange={handleChange}
             ></input>
-            <button type="submit" className="  btn btn-primary input-lg mr-3">
+            <button
+              type="submit"
+              className="  btn btn-primary input-lg lg:mr-3 mt-3 lg:mt-0"
+            >
               Search
             </button>
             <button
               className={`btn  ${
                 text.length > 0 ? "btn-primary" : "btn-disabled"
-              } input-lg `}
+              } input-lg mt-3 lg:mt-0`}
               onClick={handleClear}
             >
               Clear

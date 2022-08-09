@@ -38,7 +38,7 @@ function AssetInfo() {
     return <div>loading</div>;
   }
   return (
-    <div className="grid grid-cols-2 gap-3 md:grid-cols-3 text-base-content">
+    <div className="grid grid-cols-2 gap-3 md:grid-cols-3 text-base-content mt-6">
       <div className="bg-base-300 col-span-2 card aspect-[7/10] lg:aspect-[2/1]">
         <MainInfo asset={asset} />
       </div>

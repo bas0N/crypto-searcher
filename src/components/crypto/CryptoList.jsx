@@ -2,7 +2,7 @@ import React from "react";
 import CryptoItem from "./CryptoItem";
 import CryptoContext from "../../context/CryptoContext";
 import { useContext, useEffect, useState } from "react";
-import { data } from "../../assets/data";
+
 import {
   getMultipleAssets,
   getExchangeRates,
@@ -31,8 +31,8 @@ function CryptoList() {
     return <NotFound />;
   }
   return (
-    <div className="flex flex-col items-center gap-9">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mt-6 md:w-full">
+    <div className="flex flex-col items-center  gap-9">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mt-6 w-full ">
         {currentPageAssets.map((index) => (
           <CryptoItem
             id={index.id}
@@ -44,6 +44,7 @@ function CryptoList() {
             marketCap={`${Number(index.marketCapUsd / 1000000000).toFixed(
               2
             )}bln`}
+            asset={index}
             key={index.rank}
           />
         ))}

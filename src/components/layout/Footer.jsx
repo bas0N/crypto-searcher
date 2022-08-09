@@ -9,7 +9,7 @@ function Footer() {
             <BiCoinStack className="font-extrabold text-9xl" />
             <div className="flex flex-col">
               <h1 className="text-2xl font-extrabold ">CRYPTEX</h1>
-              <h3 className="font-bold opacity-60">Trusted crypto solutions</h3>
+              <h3 className="font-bold ">Trusted crypto solutions</h3>
             </div>
           </div>
         </div>

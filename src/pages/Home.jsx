@@ -9,7 +9,7 @@ function Home() {
   const { searchMode, dispatch } = useContext(CryptoContext);
 
   return (
-    <div>
+    <div className="flex flex-col h-full justify-between">
       {searchMode && <Search />}
       <CryptoList />
     </div>

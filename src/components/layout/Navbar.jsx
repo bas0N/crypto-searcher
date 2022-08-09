@@ -6,6 +6,7 @@ import { BiCoinStack } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import CryptoContext from "../../context/CryptoContext";
+import { RiCopperCoinFill } from "react-icons/ri";
 
 function Navbar() {
   const { dispatch, theme } = useContext(CryptoContext);
@@ -40,7 +41,7 @@ function Navbar() {
             to="/"
             className="flex justify-between items-center px-8 gap-2 btn btn-ghost "
           >
-            <BiCoinStack className="text-5xl " />
+            <RiCopperCoinFill className="text-5xl " />
             <h1 className=" text-3xl font-bold ">CRYPTEX</h1>
           </Link>
 

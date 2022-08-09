@@ -28,7 +28,13 @@ function CryptoList() {
     return <div>loading</div>;
   }
   if (assets.length === 0) {
-    return <NotFound />;
+    return (
+      <div className="flex flex-col mt-6 justify-between items-center">
+        <h1 className="text-7xl font-extrabold">Ooooops...</h1>
+        <h2 className=" mt-3 font-2xl ">No assets found</h2>
+        <button className="btn btn-primary mt-3">GO BACK</button>
+      </div>
+    );
   }
   return (
     <div className="flex flex-col items-center  gap-9">

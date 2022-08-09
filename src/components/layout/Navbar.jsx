@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaAlignJustify } from "react-icons/fa";
 import { FaRegWindowClose } from "react-icons/fa";
 import { BiCoinStack } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import CryptoContext from "../../context/CryptoContext";
 
@@ -30,6 +30,7 @@ function Navbar() {
       localStorage.setItem("theme", JSON.stringify("dark"));
     }
   };
+  const location = useLocation();
 
   return (
     <div className="">
@@ -43,14 +44,16 @@ function Navbar() {
             <h1 className=" text-3xl font-bold ">CRYPTEX</h1>
           </Link>
 
-          <div className="flex mr-9 justify-between items-center ">
-            <button
-              className="btn btn-ghost text-xl"
-              onClick={handleSearchToggle}
-            >
-              <FaSearch />
-            </button>
-            <div className=" hidden md:flex  items-center">
+          <div className="flex justify-between items-start ">
+            {location.pathname === "/" && (
+              <button
+                className="btn btn-ghost text-xl"
+                onClick={handleSearchToggle}
+              >
+                <FaSearch />
+              </button>
+            )}
+            <div className=" hidden lg:flex  items-center">
               <Link to="/" className="btn btn-ghost">
                 Home
               </Link>
@@ -66,7 +69,7 @@ function Navbar() {
               />
             </div>
             <button
-              className="md:hidden btn btn-ghost text-xl"
+              className="lg:hidden btn btn-ghost text-xl 	"
               onClick={handleClick}
             >
               {!nav ? (
@@ -75,7 +78,6 @@ function Navbar() {
                 <FaRegWindowClose className="" />
               )}
             </button>
-            <div className="md:hidden " onClick={handleClick}></div>
           </div>
         </div>
       </div>

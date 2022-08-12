@@ -55,3 +55,28 @@ export const getMarketsForAsset = async (id) => {
     console.log("Error: ", e);
   }
 };
+
+export const getHistoricalPrices = async (asset, interval) => {
+  try {
+    let response =
+      await fetch(`https://api.coincap.io/v2/assets/${asset}/history?interval=${interval}
+    `);
+    const responseJson = await response.json();
+    console.log(responseJson);
+    const responseReversed = responseJson.data.reverse();
+    console.log(responseReversed);
+    const responseSliced = responseReversed.slice(0, 19);
+    console.log(responseSliced);
+    const responseDateEdited = responseSliced.map((obj) => {
+      const date = new Date(obj.date);
+      return {
+        ...obj,
+        date: `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`,
+      };
+    });
+
+    return responseDateEdited;
+  } catch (e) {
+    console.log("Error: ", e);
+  }
+};

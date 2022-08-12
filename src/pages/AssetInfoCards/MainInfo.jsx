@@ -12,7 +12,6 @@ function MainInfo({ asset }) {
     pricesWs.onmessage = function (msg) {
       price = JSON.parse(msg.data);
       setPrice(price.bitcoin);
-      console.log(price.bitcoin);
     };
   }, []);
   const openInNewTab = (url) => {

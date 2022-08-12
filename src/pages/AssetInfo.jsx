@@ -3,6 +3,7 @@ import CryptoContext from "../context/CryptoContext";
 import { useParams, Link } from "react-router-dom";
 import Markets from "./AssetInfoCards/Markets";
 import MainInfo from "./AssetInfoCards/MainInfo";
+import { ChartEx } from "./AssetInfoCards/Chart";
 import { getAsset, getMarketsForAsset } from "../context/CryptoActions";
 function AssetInfo() {
   const { loading, asset, assetMarkets, dispatch } = useContext(CryptoContext);
@@ -51,7 +52,9 @@ function AssetInfo() {
       </div>
       <Markets assetMarkets={assetMarkets} />
       <div className="graph bg-base-300 col-span-2 md:col-span-3 card aspect-[2/1]">
-        <div className="p-3">graph</div>
+        <div className="p-3">
+          <ChartEx />
+        </div>
       </div>
     </div>
   );

@@ -18,6 +18,7 @@ function App() {
               <Routes>
                 <Route exact path="/" exact element={<Home />} />
                 <Route exact path="/about" element={<About />} />
+
                 <Route exact path="/asset/:id" element={<AssetInfo />} />
                 <Route exact path="/not-found" element={<NotFound />} />
                 <Route path="/*" element={<NotFound />} />

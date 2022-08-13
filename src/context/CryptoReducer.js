@@ -27,6 +27,10 @@ const cryptoReducer = (state, action) => {
       return { ...state, assetMarkets: action.payload, loading: false };
     case "SET_EXCHANGE_RATES":
       return { ...state, exchangeRates: action.payload, loading: false };
+    case "SET_HISTORICAL_PRICES":
+      return { ...state, historicalPrices: action.payload, loading: false };
+    case "SET_SORT_PARAMS":
+      return { ...state, searchOrder: action.payload, loading: false };
     default:
       return state;
   }

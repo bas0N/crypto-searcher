@@ -9,8 +9,8 @@ function MainInfo({ asset }) {
   let [price, setPrice] = useState(undefined);
   useEffect(() => {
     pricesWs.onmessage = function (msg) {
-      price = JSON.parse(msg.data);
-      setPrice(price.bitcoin);
+      let price = JSON.parse(msg.data);
+      setPrice(price[asset.id]);
     };
   }, []);
   const openInNewTab = (url) => {

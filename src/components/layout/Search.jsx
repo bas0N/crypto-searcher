@@ -130,7 +130,7 @@ function Search() {
                     : ""
                 }
               >
-                <a>Price (high-high)</a>
+                <a>Price (high-low)</a>
               </li>
               <li
                 onClick={() => handleSelectSorting(searchParams[3])}

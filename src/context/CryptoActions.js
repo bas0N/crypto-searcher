@@ -1,9 +1,5 @@
 import { data } from "../assets/data";
 const sortFunction = (order, direction, assets) => {
-  console.log(order);
-  console.log(direction);
-  console.log(assets.data);
-  console.log(assets.data[0][order]);
   let sortedAssets = [];
   if (direction === "asc") {
     sortedAssets = assets.data.sort((a, b) => {
@@ -30,7 +26,6 @@ export const getMultipleAssets = async (sortParams) => {
     const assets = await response.json();
     let sortedAssets = assets.data;
     if (sortParams.length === 0) {
-      console.log(sortedAssets);
       return sortedAssets;
     }
     //Sort assets on the basis of sort parameters
@@ -101,11 +96,8 @@ export const getHistoricalPrices = async (asset, interval) => {
       await fetch(`https://api.coincap.io/v2/assets/${asset}/history?interval=${interval}
     `);
     const responseJson = await response.json();
-    console.log(responseJson);
     const responseReversed = responseJson.data.reverse();
-    console.log(responseReversed);
     const responseSliced = responseReversed.slice(0, 19);
-    console.log(responseSliced);
     const responseDateEdited = responseSliced.map((obj) => {
       const date = new Date(obj.date);
       return {

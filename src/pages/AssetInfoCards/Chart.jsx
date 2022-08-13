@@ -43,8 +43,7 @@ export function ChartEx() {
   let pricesArray;
   let labelsArray;
   const historicalPricesReversed = [...historicalPrices].reverse();
-  console.log(historicalPrices);
-  console.log(historicalPricesReversed);
+
   pricesArray = historicalPricesReversed.map((a) => Number(a.priceUsd));
   labelsArray = historicalPricesReversed.map((a) => a.date);
   const data = {

@@ -11,7 +11,6 @@ function Pagination() {
     const indexOfLastAsset = currentPage * assetsPerPage;
     const indexOfFirstAsset = indexOfLastAsset - assetsPerPage;
     const currentPageItems = assets.slice(indexOfFirstAsset, indexOfLastAsset);
-    console.log(currentPageItems);
     dispatch({ type: "SET_CURRENT_PAGE_ASSETS", payload: currentPageItems });
   }, [dispatch, currentPage]);
   for (let i = 1; i <= Math.ceil(totalAssets / assetsPerPage); i++) {

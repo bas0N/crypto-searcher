@@ -1,4 +1,3 @@
-import { data } from "../assets/data";
 const sortFunction = (order, direction, assets) => {
   let sortedAssets = [];
   if (direction === "asc") {

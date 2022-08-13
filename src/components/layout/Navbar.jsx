@@ -2,7 +2,6 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaAlignJustify } from "react-icons/fa";
 import { FaRegWindowClose } from "react-icons/fa";
-import { BiCoinStack } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import CryptoContext from "../../context/CryptoContext";

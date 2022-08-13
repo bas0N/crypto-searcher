@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import CryptoContext from "../context/CryptoContext";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Markets from "./AssetInfoCards/Markets";
 import MainInfo from "./AssetInfoCards/MainInfo";
 import { ChartEx } from "./AssetInfoCards/Chart";
@@ -44,8 +44,8 @@ function AssetInfo() {
         <div className="p-3">rates</div>
       </div>
       <Markets assetMarkets={assetMarkets} />
-      <div className="graph bg-base-300 col-span-2 md:col-span-3 card aspect-[2/1]">
-        <div className="p-3">
+      <div className="graph bg-base-300 col-span-2 md:col-span-3 card aspect-[2/3] md:aspect-[2/1]">
+        <div className="p-3 h-full">
           <ChartEx asset={asset.id} />
         </div>
       </div>

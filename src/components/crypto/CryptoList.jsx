@@ -1,25 +1,14 @@
 import React from "react";
 import CryptoItem from "./CryptoItem";
 import CryptoContext from "../../context/CryptoContext";
-import { useContext, useEffect, useState } from "react";
-import { useSearchParams, useLocation } from "react-router-dom";
-import {
-  getMultipleAssets,
-  getExchangeRates,
-} from "../../context/CryptoActions";
+import { useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { getMultipleAssets } from "../../context/CryptoActions";
 import Pagination from "../layout/Pagination";
-import NotFound from "../../pages/NotFound";
 
 function CryptoList() {
-  const {
-    loading,
-    assets,
-    dispatch,
-    currentPageAssets,
-    currentPage,
-    searchOrder,
-  } = useContext(CryptoContext);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { loading, assets, dispatch, currentPageAssets } =
+    useContext(CryptoContext);
   //Get query params
   const search = useLocation().search;
   const order = new URLSearchParams(search).get("order");

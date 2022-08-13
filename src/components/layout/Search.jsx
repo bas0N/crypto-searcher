@@ -2,12 +2,23 @@ import React, { useState, useContext } from "react";
 import { searchAssets } from "../../context/CryptoActions";
 import CryptoContext from "../../context/CryptoContext";
 import { getMultipleAssets } from "../../context/CryptoActions";
+import { useSearchParams, useNavigate } from "react-router-dom";
+const searchParams = [
+  [],
+  [{ order: "priceUsd" }, { dir: "asc" }],
+  [{ order: "priceUsd" }, { dir: "dsc" }],
+  [{ order: "changePercent24Hr" }, { dir: "asc" }],
+  [{ order: "changePercent24Hr" }, { dir: "dsc" }],
+];
 function Search() {
   const [text, setText] = useState("");
-  const { assets, loading, dispatch } = useContext(CryptoContext);
+  const { assets, loading, dispatch, searchOrder } = useContext(CryptoContext);
   const handleChange = (e) => {
     setText(e.target.value);
   };
+  //ArrayComparison
+  const compareArrays = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text === "") {
@@ -33,15 +44,27 @@ function Search() {
     };
     execute();
   };
-  const [message, setMessage] = useState("esa");
+  const navigate = useNavigate();
 
   const handleSelectSorting = (props) => {
-    console.log(props);
+    if (props.length === 0) {
+      navigate({
+        pathname: "/",
+        search: ``,
+      });
+      dispatch({ type: "SET_SORT_PARAMS", payload: [] });
+    }
+
+    navigate({
+      pathname: "/",
+      search: `?order=${props[0].order}&dir=${props[1].dir}`,
+    });
+    dispatch({ type: "SET_SORT_PARAMS", payload: props });
+    navigate(0);
   };
   if (loading) {
     return <div>loading</div>;
   }
-  const az = "az";
   return (
     <div>
       <div className="  items-center md:grid md:grid-cols-2 gap-9  container mx-auto mt-6">
@@ -52,7 +75,7 @@ function Search() {
               placeholder="Search"
               className="  input input-lg input-primary lg:mr-6 flex-grow text-accent-content bg-base-300"
               value={text}
-              onChange={handleSubmit}
+              onChange={handleChange}
             ></input>
             <button
               type="submit"
@@ -80,41 +103,54 @@ function Search() {
               class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li
-                onClick={() =>
-                  handleSelectSorting([{ order: "alphabetic" }, { dir: "asc" }])
+                className={
+                  compareArrays(searchParams[0], searchOrder)
+                    ? "bg-base-300 rounded-lg"
+                    : ""
                 }
+                onClick={() => handleSelectSorting(searchParams[0])}
               >
-                <a>Name (A-Z)</a>
+                <a>Default </a>
               </li>
               <li
-                onClick={() =>
-                  handleSelectSorting([
-                    { order: "alphabetic" },
-                    { dir: "desc" },
-                  ])
+                className={
+                  compareArrays(searchParams[1], searchOrder)
+                    ? "bg-base-300 rounded-lg"
+                    : ""
                 }
-              >
-                <a>Name (A-Z)</a>
-              </li>
-              <li
-                onClick={() =>
-                  handleSelectSorting([{ order: "price" }, { dir: "asc" }])
-                }
+                onClick={() => handleSelectSorting(searchParams[1])}
               >
                 <a>Price (low-high) </a>
               </li>
               <li
-                onClick={() =>
-                  handleSelectSorting([{ order: "price" }, { dir: "desc" }])
+                onClick={() => handleSelectSorting(searchParams[2])}
+                className={
+                  compareArrays(searchParams[2], searchOrder)
+                    ? "bg-base-300 rounded-lg"
+                    : ""
                 }
               >
-                <a>Price (high-low)</a>
+                <a>Price (high-high)</a>
               </li>
-              <li>
+              <li
+                onClick={() => handleSelectSorting(searchParams[3])}
+                className={
+                  compareArrays(searchParams[3], searchOrder)
+                    ? "bg-base-300 rounded-lg"
+                    : ""
+                }
+              >
+                <a>% Change (low-high)</a>
+              </li>
+              <li
+                onClick={() => handleSelectSorting(searchParams[4])}
+                className={
+                  compareArrays(searchParams[4], searchOrder)
+                    ? "bg-base-300 rounded-lg"
+                    : ""
+                }
+              >
                 <a>% Change (high-low)</a>
-              </li>
-              <li>
-                <a>% Change (low-low)</a>
               </li>
             </ul>
           </div>

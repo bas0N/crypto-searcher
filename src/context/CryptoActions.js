@@ -1,14 +1,53 @@
 import { data } from "../assets/data";
-export const getMultipleAssets = async () => {
+const sortFunction = (order, direction, assets) => {
+  console.log(order);
+  console.log(direction);
+  console.log(assets.data);
+  console.log(assets.data[0][order]);
+  let sortedAssets = [];
+  if (direction === "asc") {
+    sortedAssets = assets.data.sort((a, b) => {
+      if (a === b) {
+        return 0;
+      }
+
+      return a[order] - b[order];
+    });
+  }
+  if (direction === "dsc") {
+    sortedAssets = assets.data.sort((a, b) => {
+      if (a === b) {
+        return 0;
+      }
+      return b[order] - a[order];
+    });
+  }
+  return sortedAssets;
+};
+export const getMultipleAssets = async (sortParams) => {
   try {
     const response = await fetch("https://api.coincap.io/v2/assets/");
-    return await response.json();
+    const assets = await response.json();
+    let sortedAssets = assets.data;
+    if (sortParams.length === 0) {
+      console.log(sortedAssets);
+      return sortedAssets;
+    }
+    //Sort assets on the basis of sort parameters
+    //Example:
+    //[{order:'priceUsd'},{dir:'asc'}]
+    const sortedResult = sortFunction(
+      sortParams[0].order,
+      sortParams[1].dir,
+      assets
+    );
+    //return sorted Assets
+    return sortedResult;
   } catch (e) {
     console.log(e);
   }
 };
 export const getExchangeRates = async () => {
-  console.log("esa");
   try {
     const response = await fetch("https://api.coincap.io/v2/rates/");
     return await response.json();

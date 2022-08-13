@@ -27,20 +27,7 @@ function AssetInfo() {
     execute();
     //dispatch deleted
   }, [params.id]);
-  const {
-    id,
-    rank,
-    symbol,
-    name,
-    supply,
-    maxSupply,
-    marketCapUsd,
-    volumeUsd24Hr,
-    priceUsd,
-    changePercent24Hr,
-    vwap24Hr,
-    explorer,
-  } = asset;
+
   if (loading) {
     return <div>loading</div>;
   }

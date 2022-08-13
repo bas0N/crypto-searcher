@@ -2,7 +2,7 @@ import React from "react";
 import CryptoItem from "./CryptoItem";
 import CryptoContext from "../../context/CryptoContext";
 import { useContext, useEffect, useState } from "react";
-
+import { useSearchParams, useLocation } from "react-router-dom";
 import {
   getMultipleAssets,
   getExchangeRates,
@@ -11,18 +11,40 @@ import Pagination from "../layout/Pagination";
 import NotFound from "../../pages/NotFound";
 
 function CryptoList() {
-  const { loading, assets, dispatch, currentPageAssets, currentPage } =
-    useContext(CryptoContext);
+  const {
+    loading,
+    assets,
+    dispatch,
+    currentPageAssets,
+    currentPage,
+    searchOrder,
+  } = useContext(CryptoContext);
+  const [searchParams, setSearchParams] = useSearchParams();
+  //Get query params
+  const search = useLocation().search;
+  const order = new URLSearchParams(search).get("order");
+  const direction = new URLSearchParams(search).get("dir");
+  let retrievedSortParams = [];
 
   useEffect(() => {
     dispatch({ type: "SET_LOADING" });
     const execute = async () => {
-      const assets = await getMultipleAssets();
+      //Check for valid search params
+      //[] otherwise
+      if (
+        (order === "priceUsd" || order === "changePercent24Hr") &&
+        (direction === "asc" || direction === "dsc")
+      ) {
+        retrievedSortParams = [{ order: order }, { dir: direction }];
+        dispatch({ type: "SET_SORT_PARAMS", payload: retrievedSortParams });
+        console.log(retrievedSortParams);
+      }
+      const assets = await getMultipleAssets(retrievedSortParams);
 
-      dispatch({ type: "GET_MULTIPLE_ASSETS", payload: assets.data });
+      dispatch({ type: "GET_MULTIPLE_ASSETS", payload: assets });
     };
     execute();
-  }, []);
+  }, [order, direction, dispatch]);
   //pagination
   if (loading) {
     return <div>loading</div>;

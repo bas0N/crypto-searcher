@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext } from "react";
 import CryptoContext from "../../context/CryptoContext";
 
 import {
@@ -12,8 +12,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { priceData } from "../../assets/priceData";
-import { getHistoricalPrices } from "../../context/CryptoActions";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -25,7 +24,7 @@ ChartJS.register(
 );
 
 export const options = {
-  responsive: true,
+  maintainAspectRatio: false,
 
   plugins: {
     legend: {
@@ -39,7 +38,7 @@ export const options = {
 };
 
 export function ChartEx() {
-  const { dispatch, historicalPrices, asset } = useContext(CryptoContext);
+  const { historicalPrices, asset } = useContext(CryptoContext);
   let pricesArray;
   let labelsArray;
   const historicalPricesReversed = [...historicalPrices].reverse();
@@ -58,5 +57,5 @@ export function ChartEx() {
     ],
   };
 
-  return <Line options={options} data={data} />;
+  return <Line className="h-max" options={options} data={data} />;
 }

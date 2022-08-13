@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import CryptoContext from "../../context/CryptoContext";
 
 function MainInfo({ asset }) {
-  const { dispatch } = useContext(CryptoContext);
+  const {} = useContext(CryptoContext);
   const pricesWs = new WebSocket(
     `wss://ws.coincap.io/prices?assets=${asset.id}`
   );

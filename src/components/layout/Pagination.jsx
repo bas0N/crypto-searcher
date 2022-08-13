@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import CryptoContext from "../../context/CryptoContext";
 
 function Pagination() {
-  const { dispatch, currentPage, currentPageAssets, assets } =
-    useContext(CryptoContext);
+  const { dispatch, currentPage, assets } = useContext(CryptoContext);
   const pageNumbers = [];
   const assetsPerPage = 8;
   const totalAssets = assets.length;

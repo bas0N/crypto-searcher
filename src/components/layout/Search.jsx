@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { searchAssets } from "../../context/CryptoActions";
 import CryptoContext from "../../context/CryptoContext";
 import { getMultipleAssets } from "../../context/CryptoActions";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const searchParams = [
   [],
   [{ order: "priceUsd" }, { dir: "asc" }],
@@ -12,7 +12,7 @@ const searchParams = [
 ];
 function Search() {
   const [text, setText] = useState("");
-  const { assets, loading, dispatch, searchOrder } = useContext(CryptoContext);
+  const { loading, dispatch, searchOrder } = useContext(CryptoContext);
   const handleChange = (e) => {
     setText(e.target.value);
   };

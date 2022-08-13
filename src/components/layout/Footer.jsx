@@ -1,5 +1,4 @@
 import React from "react";
-import { BiCoinStack } from "react-icons/bi";
 import { RiCopperCoinFill } from "react-icons/ri";
 
 function Footer() {

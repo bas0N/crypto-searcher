@@ -1,7 +1,6 @@
 import React from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
-import { Link } from "react-router-dom";
 function About() {
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");

@@ -1,15 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function CryptoItem({
-  id,
-  name,
-  index,
-  price,
-  change,
-  marketCap,
-  rank,
-  asset,
-}) {
+function CryptoItem({ asset }) {
   return (
     <Link to={`/asset/${asset.id}`}>
       <div className="shadow-md w-100 bg-neutral hover:bg-neutral-focus text-primary-content hover:cursor-pointer rounded-lg  pr-3 overflow-auto items-baseline w-ful ">

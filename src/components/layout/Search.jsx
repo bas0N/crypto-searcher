@@ -33,9 +33,15 @@ function Search() {
     };
     execute();
   };
+  const [message, setMessage] = useState("esa");
+
+  const handleSelectSorting = (props) => {
+    console.log(props);
+  };
   if (loading) {
     return <div>loading</div>;
   }
+  const az = "az";
   return (
     <div>
       <div className="  items-center md:grid md:grid-cols-2 gap-9  container mx-auto mt-6">
@@ -46,7 +52,7 @@ function Search() {
               placeholder="Search"
               className="  input input-lg input-primary lg:mr-6 flex-grow text-accent-content bg-base-300"
               value={text}
-              onChange={handleChange}
+              onChange={handleSubmit}
             ></input>
             <button
               type="submit"
@@ -73,17 +79,36 @@ function Search() {
               tabindex="0"
               class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
+              <li
+                onClick={() =>
+                  handleSelectSorting([{ order: "alphabetic" }, { dir: "asc" }])
+                }
+              >
                 <a>Name (A-Z)</a>
               </li>
-              <li>
+              <li
+                onClick={() =>
+                  handleSelectSorting([
+                    { order: "alphabetic" },
+                    { dir: "desc" },
+                  ])
+                }
+              >
                 <a>Name (A-Z)</a>
               </li>
-              <li>
-                <a>Price (high-low) </a>
+              <li
+                onClick={() =>
+                  handleSelectSorting([{ order: "price" }, { dir: "asc" }])
+                }
+              >
+                <a>Price (low-high) </a>
               </li>
-              <li>
-                <a>Price (low-high)</a>
+              <li
+                onClick={() =>
+                  handleSelectSorting([{ order: "price" }, { dir: "desc" }])
+                }
+              >
+                <a>Price (high-low)</a>
               </li>
               <li>
                 <a>% Change (high-low)</a>

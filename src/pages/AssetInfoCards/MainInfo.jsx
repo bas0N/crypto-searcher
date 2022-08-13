@@ -1,13 +1,12 @@
 import React, { useEffect, useContext, useState } from "react";
 import CryptoContext from "../../context/CryptoContext";
-import CurrencyPicker from "../../components/shared/CurrencyPicker";
-import { getExchangeRates } from "../../context/CryptoActions";
 
 function MainInfo({ asset }) {
   const { dispatch } = useContext(CryptoContext);
-  const pricesWs = new WebSocket("wss://ws.coincap.io/prices?assets=bitcoin");
+  const pricesWs = new WebSocket(
+    `wss://ws.coincap.io/prices?assets=${asset.id}`
+  );
   let [price, setPrice] = useState(undefined);
-  let [rates, setRates] = useState([]);
   useEffect(() => {
     pricesWs.onmessage = function (msg) {
       price = JSON.parse(msg.data);

@@ -13,6 +13,7 @@ export const CryptoProvider = ({ children }) => {
     exchangeRates: [],
     theme: JSON.parse(localStorage.getItem("theme")) || "dark",
     historicalPrices: [],
+    searchOrder: [],
   };
 
   const [state, dispatch] = useReducer(cryptoReducer, initialState);
